@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RadScribeAI</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>RadScribeAI</h1>
+<p>Radiation Oncology Clinical Documentation Assistant</p>
+</header>
+
+<section class="patient-card">
+
+<h2>Patient Details</h2>
+
+<div class="grid">
+
+<div>
+<label>Patient Name</label>
+<input type="text" placeholder="Enter patient name">
+</div>
+
+<div>
+<label>UHID</label>
+<input type="text" placeholder="UHID">
+</div>
+
+<div>
+<label>Age</label>
+<input type="text" placeholder="Age">
+</div>
+
+<div>
+<label>Sex</label>
+<select>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Referring Doctor</label>
+<input type="text" placeholder="Doctor Name">
+</div>
+
+<div>
+<label>Diagnosis</label>
+<input type="text" placeholder="Diagnosis">
+</div>
+
+</div>
+
+</section>
+
+
+<section class="controls">
+
+<button id="startBtn">🎤 Start Recording</button>
+
+<button id="pauseBtn">⏸ Pause</button>
+
+<button id="resumeBtn">▶ Resume</button>
+
+<button id="stopBtn">⏹ Stop</button>
+
+<button onclick="toggleUploadMenu()">📷 Add Report</button>
+
+</section>
+<div id="uploadMenu" class="upload-menu" style="display:none;">
+
+<button onclick="takePhoto()">📷 Take Photo</button>
+
+<button onclick="chooseGallery()">🖼 Gallery</button>
+
+<button onclick="chooseFile()">📄 PDF / File</button>
+
+</div>
+
+<input
+type="file"
+id="galleryInput"
+accept="image/*"
+multiple
+style="display:none;">
+
+<input
+type="file"
+id="fileInput"
+accept=".pdf,image/*"
+multiple
+style="display:none;">
+
+
+<section class="main-area">
+
+<div class="box">
+
+<h3>Live Conversation</h3>
+
+<textarea id="transcript" placeholder="Conversation will appear here..." rows="15"></textarea>
+
+</div>
+
+
+<div class="box">
+
+<h3>Uploaded Reports</h3>
+
+<ul id="reportList">
+
+<li>No reports uploaded yet.</li>
+
+</ul>
+
+</div>
+
+<input
+type="file"
+id="reportInput"
+multiple
+accept=".pdf,.jpg,.jpeg,.png"
+style="display:none;">
+
+
+<div class="box">
+
+<h3>Draft OPD Clinical Note</h3>
+
+<textarea placeholder="AI generated draft will appear here..." rows="15"></textarea>
+
+</div>
+
+</section>
+
+
+<section class="bottom-buttons">
+
+<button>Generate Clinical Sheet</button>
+
+<button>Save Consultation</button>
+
+<button>Print</button>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
